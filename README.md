@@ -1,26 +1,5 @@
 # Module 3 - Node day 7 
 
-## Getting this workshop to your computer!
-
-1. Fork it from the GitHub repo page. (this will give you a copy of it in your account.)
-2. Clone it to your computer using the `https` address.
-    - On your computer, navigate to the folder where you have been saving your workshops. To through folders in the terminal, use
-        - MAC: `ls` to view enclosed files/folders
-        - WIN: `dir` to view enclosed files/folders
-        - `cd <FOLDERNAME>` to move into a folder.
-        - Use `cd ..` to go up one level (parent folder)
-    - `git clone <URL>`
-    - `cd` into the repo folder.
-    - `code .`
-    - Create a new branch to work from: `git checkout -b my-solutions`
-    - Get to work!
-    - Once you are done, stage the files with `git add .`
-    - Commit them to the branch with `git commit -m 'I did it!`
-    - Push it to GitHub `git push origin HEAD`
-    - In the GitHub UI, open a PR
-    - Done!!
-
----
 
 ## ASYNC / AWAIT
 
