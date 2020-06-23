@@ -24,3 +24,5 @@ const getTronaldDump = async () => {
 
 //return random quote
 getTronaldDump();
+
+module.exports.getTronaldDump = getTronaldDump;

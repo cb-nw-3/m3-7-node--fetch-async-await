@@ -22,6 +22,8 @@ const getDadJoke = async () => {
 
 getDadJoke();
 
+module.exports.getDadJoke = getDadJoke;
+
 //NOTE TO SELF: an async function will either return a promise or resolve promise(s)
 
 //Only the function that creates the promise should be able to resolve, reject,
