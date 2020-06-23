@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const request = require('request-promise');
 
 const PORT = process.env.PORT || 8000;
 

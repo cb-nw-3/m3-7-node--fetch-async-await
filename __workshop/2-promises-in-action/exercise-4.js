@@ -15,3 +15,5 @@ const getTronaldDump = async () => {
 }
 
 getTronaldDump();
+
+module.exports = { getTronaldDump };

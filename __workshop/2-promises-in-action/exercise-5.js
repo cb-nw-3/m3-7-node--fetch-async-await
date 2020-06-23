@@ -21,3 +21,5 @@ try {
 }
 
 getGeekJoke();
+
+module.exports = { getGeekJoke };
