@@ -2,18 +2,22 @@ const rp = require("request-promise");
 
 //this promise function will return a random joke from the API
 const getDadJoke = async () => {
-  const options = {
-    uri: "https://icanhazdadjoke.com/",
-    headers: {
-      Accept: "application/json",
-    },
-  };
+  try {
+    const options = {
+      uri: "https://icanhazdadjoke.com/",
+      headers: {
+        Accept: "application/json",
+      },
+    };
 
-  const data = await rp(options);
+    const data = await rp(options);
 
-  let joke = JSON.parse(data).joke;
-  console.log(joke);
-  return joke;
+    let joke = JSON.parse(data).joke;
+    console.log(joke);
+    return joke;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 getDadJoke();
