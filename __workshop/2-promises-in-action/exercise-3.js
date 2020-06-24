@@ -14,4 +14,8 @@ const getDadJoke = async () => {
   return requestJoke.joke;
 };
 
-getDadJoke();
+// getDadJoke();
+
+module.exports = {
+  getDadJoke,
+};
