@@ -9,7 +9,7 @@ const getDadJoke = async () => {
     },
     json: true,
   };
-  const randomJoke = request(options);
+  const randomJoke = await request(options);
 
   return randomJoke;
 };
