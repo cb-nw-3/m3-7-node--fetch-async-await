@@ -11,7 +11,7 @@ const obj = {
 
 const getTronaldDump = async () => {
   const getQuote = await request(obj);
-  console.log(getQuote.value);
+  // console.log(getQuote.value);
   return getQuote.value;
 };
 

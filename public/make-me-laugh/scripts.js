@@ -17,8 +17,6 @@ const onSubmit = async (event) => {
       "Content-Type": "application/json",
     },
   });
-  console.log("received", recivedObjectAfterRequest);
   const parcedResponse = await recivedObjectAfterRequest.json();
-  console.log("parced response", parcedResponse);
   jokeDiv.innerText = `${parcedResponse.joke}`;
 };

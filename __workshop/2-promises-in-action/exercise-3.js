@@ -10,7 +10,7 @@ const obj = {
 
 const getDadJoke = async () => {
   const requestJoke = await request(obj);
-  console.log(requestJoke.joke);
+  // console.log(requestJoke.joke);
   return requestJoke.joke;
 };
 

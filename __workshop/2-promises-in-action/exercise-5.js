@@ -6,7 +6,7 @@ const getGeekJoke = async () => {
       "https://geek-jokes.sameerkumar.website/api?format=json"
     );
     const parsedJoke = JSON.parse(getJoke);
-    console.log(parsedJoke.joke);
+    // console.log(parsedJoke.joke);
     return parsedJoke.joke;
   } catch (err) {
     console.log(err);

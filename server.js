@@ -12,11 +12,20 @@ const PORT = process.env.PORT || 8000;
 
 const handleGetJoke = async (req, res) => {
   let { selectedJokeType } = req.body;
-  let dadJoke = await getDadJoke();
-  res.json({
-    joke: `${dadJoke}`,
-  });
-  console.log("hiya");
+  let response = {};
+  if (selectedJokeType == "dad") {
+    let dadJoke = await getDadJoke();
+    response.joke = `${dadJoke}`;
+    res.json(response);
+  } else if (selectedJokeType == "tronald") {
+    const tronaldJoke = await getTronaldDump();
+    response.joke = `${tronaldJoke}`;
+    res.json(response);
+  } else if (selectedJokeType == "geek") {
+    const geekJoke = await getGeekJoke();
+    response.joke = `${geekJoke}`;
+    res.json(response);
+  }
 };
 
 express()
