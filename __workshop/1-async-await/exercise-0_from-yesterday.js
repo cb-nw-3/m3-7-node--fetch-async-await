@@ -4,24 +4,27 @@
 // a Promise that tests if the value is less than or greater than the value 10.
 
 const compareToTen = (num) => {
-    myPromise = new Promise((resolve, reject) => {
-        if(num > 10) {
-            resolve(num + " is greater than 10, success!")
-        } else {
-            reject(num + " is less than 10, error!")
-        }
-    })
-    return myPromise;
-}
+  let myPromise = new Promise((resolve, reject) => {
+    if (num > 10) {
+      resolve(num + " is greater than 10, success!");
+    } else {
+      reject(num + " is less than 10, error!");
+    }
+  });
+  return myPromise;
+};
 
 const myFunc = async (num) => {
-    // add code here
-}
+  return await compareToTen(num);
+};
 
-myFunc(15);
-myFunc(8);
+myFunc(15)
+  .then((answer) => console.log(answer))
+  .catch((err) => console.log(err));
+myFunc(8)
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
 
-    
 // Exercise 0.1
 // ------------
 // Write two functions that use Promises that you can chain!
@@ -30,30 +33,33 @@ myFunc(8);
 // If the array contains anything but strings, it should throw an error.
 
 const makeAllCaps = (array) => {
-    return new Promise((resolve, reject) => {
-
-        if (array.every(word => typeof word === 'string')) {
-                resolve(array.map(word => word.toUpperCase()));
-            } else {
-                reject('Error: Not all items in the array are strings!')
-            }
-    });
-}
+  return new Promise((resolve, reject) => {
+    if (array.every((word) => typeof word === "string")) {
+      resolve(array.map((word) => word.toUpperCase()));
+    } else {
+      reject("Error: Not all items in the array are strings!");
+    }
+  });
+};
 
 const sortWords = (array) => {
-    return new Promise((resolve, reject) => {
-
-        if (array.every(word => typeof word === 'string')) {
-                resolve(array.sort());
-        } else {
-            reject('Error: Something went wrong with sorting words.') 
-        }
-    })
-} 
+  return new Promise((resolve, reject) => {
+    if (array.every((word) => typeof word === "string")) {
+      resolve(array.sort());
+    } else {
+      reject("Error: Something went wrong with sorting words.");
+    }
+  });
+};
 
 const textTransform = async (array) => {
-    // add code here
-}
+  let firstArrayResult = await makeAllCaps(array);
+  return await sortWords(firstArrayResult);
+};
 
-textTransform(['cucumber', 'tomatos', 'avocado']);
-textTransform(['cucumber', 44, true]);
+textTransform(["cucumber", "tomatos", "avocado"])
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
+textTransform(["cucumber", 44, true])
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
