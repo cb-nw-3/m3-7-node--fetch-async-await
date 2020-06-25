@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const request = require('request-promise');
+const { getDadJoke, getTronaldDump, getGeekJoke } = require('./handlers');
 
 const PORT = process.env.PORT || 8000;
 
@@ -20,5 +21,10 @@ express()
     .set('view engine', 'ejs')
 
     // endpoints
-
+    .get('/make-me-laugh/getDadJoke', getDadJoke)
+    .get('/make-me-laugh/getTronaldDump', getTronaldDump)
+    .get('/make-me-laugh/getGeekJoke', getGeekJoke)
+    .get('*', (req,res) => {
+        res.status(400).send('Oh no! Something went wrong!');
+    })
     .listen(PORT, () => console.log(`Listening on port ${PORT}`));
