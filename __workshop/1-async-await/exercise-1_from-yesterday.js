@@ -1,12 +1,37 @@
 // Exercise 1 - `getIssPosition`
 // -----------------------------
-
 // require the 'request-promise' module.
-const request = require('request-promise');
+const rp = require("request-promise");
 
-// Returns the current position of the ISS
-const getIssPosition = async () => {
-    // add code here (include a try/catch as well)
+const options = {
+    uri: "http://api.open-notify.org/iss-now.json",
+    headers: {
+        "User-Agent": "Request-Promise",
+    },
+    json: true,
+};
+
+function getIssPosition() {
+    return rp(options)
+        .then(function (res) {
+            return {
+                lat: res.iss_position.latitude,
+                lng: res.iss_position.longitude,
+            };
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 }
 
-getIssPosition();
+// Returns the current position of the ISS
+const getIss = async () => {
+    try {
+        const res = await getIssPosition();
+        console.log(res);
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+getIss();
