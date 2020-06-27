@@ -10,8 +10,7 @@ let options = {
 };
 
 const getTronaldDump = async () => {
-  return await request(options);
+  let res = await request(options);
+  console.log(res.value);
 };
-getTronaldDump()
-  .then((quote) => console.log(quote.value))
-  .catch((err) => console.log(err));
+getTronaldDump();

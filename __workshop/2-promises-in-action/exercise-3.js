@@ -9,8 +9,7 @@ let options = {
   json: true,
 };
 const getDadJoke = async () => {
-  return await request(options);
+  const res = await request(options);
+  console.log(res.joke);
 };
-getDadJoke()
-  .then((joke) => console.log(joke.joke.toString()))
-  .catch((err) => console.log(err));
+getDadJoke();

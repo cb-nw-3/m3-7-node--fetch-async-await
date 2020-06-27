@@ -24,10 +24,13 @@ function doubleAfter2Seconds(num) {
   });
 }
 async function doublesLater(num) {
-  let x = await doubleAfter2Seconds(num);
-  let y = await doubleAfter2Seconds(x);
-  return await doubleAfter2Seconds(y).then((z) => x + y + z);
+  try {
+    let x = await doubleAfter2Seconds(num);
+    let y = await doubleAfter2Seconds(x);
+    let z = await doubleAfter2Seconds(y);
+    console.log(x + y + z);
+  } catch (err) {
+    console.log(err);
+  }
 }
-doublesLater(4)
-  .then((sum) => console.log(sum))
-  .catch((err) => console.log(err));
+doublesLater(4);
