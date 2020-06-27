@@ -65,5 +65,19 @@ const textTransform = async (array) => {
     .catch((error) => console.log(error));
 };
 
+const textTransform2 = async (array) => {
+  // add code here
+  console.log('Second approach', array);
+  try {
+    const AllCaps = await makeAllCaps(array);
+    const AllSorted = await sortWords(AllCaps);
+    console.log(AllSorted);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 textTransform(['cucumber', 'tomatos', 'avocado']);
 textTransform(['cucumber', 44, true]);
+textTransform2(['cucumber', 'tomatos', 'avocado']);
+textTransform2(['cucumber', 44, true]);
