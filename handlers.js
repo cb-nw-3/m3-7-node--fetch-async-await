@@ -2,7 +2,7 @@ const request = require('request-promise');
 
 
 
-const getDadJoke = async () => {
+const getDadJoke = async (req,res) => {
     const obj = {
         uri: 'https://icanhazdadjoke.com',
         headers: {
@@ -14,11 +14,12 @@ const getDadJoke = async () => {
     const getJoke = await request(obj);
     const { joke } = getJoke;
     console.log(joke);
+    res.json({ joke: joke });
 
     
 }
 
-const getTronaldDump = async () => {
+const getTronaldDump = async (req, res) => {
     const obj = {
         uri: 'https://api.tronalddump.io/random/quote',
         headers: {
@@ -29,10 +30,12 @@ const getTronaldDump = async () => {
     
     const getQuote = await request(obj);
     const { value } = getQuote;
-    console.log(value);  
+    const joke = value;
+    console.log(joke);  
+    res.json({ joke: joke });
 }
 
-const getGeekJoke = async () => {
+const getGeekJoke = async (req, res) => {
 
 
     const options = {
@@ -47,6 +50,7 @@ const getGeekJoke = async () => {
         const getJoke = await request(options)
         const { joke } = getJoke;
         console.log(joke);
+        res.json({ joke: joke});
     } catch (error) {
         console.log('Error:', error);
     }

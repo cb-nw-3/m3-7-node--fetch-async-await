@@ -21,9 +21,9 @@ express()
     .set('view engine', 'ejs')
 
     // endpoints
-    .get('/make-me-laugh/getDadJoke', getDadJoke)
-    .get('/make-me-laugh/getTronaldDump', getTronaldDump)
-    .get('/make-me-laugh/getGeekJoke', getGeekJoke)
+    .get('/make-me-laugh/dad', getDadJoke)
+    .get('/make-me-laugh/tronald', getTronaldDump)
+    .get('/make-me-laugh/geek', getGeekJoke)
     .get('*', (req,res) => {
         res.status(400).send('Oh no! Something went wrong!');
     })
