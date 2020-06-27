@@ -8,4 +8,6 @@ const getGeekJoke = async () => {
   return data.joke;
 };
 
-getGeekJoke().then((joke) => console.log(joke));
+//getGeekJoke().then((joke) => console.log(joke));
+
+module.exports = { getGeekJoke };
