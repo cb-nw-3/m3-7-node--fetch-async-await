@@ -11,8 +11,9 @@ const handleDadJoke = async (req, res, next) => {
   let joke = await getDadJoke();
   //res.status(200).send(`${joke}`);
   //console.log(joke);
-  return joke;
+  //return JSON.stringify(joke);
   //res.status(200).send(`<h1>${joke}<h1>`);
+  res.status(200).json({ joke });
 };
 
 const handleGeekJoke = async (req, res, next) => {
@@ -20,7 +21,8 @@ const handleGeekJoke = async (req, res, next) => {
   //res.status(200).send(`${joke}`);
   //console.log(joke);
   //return joke;
-  res.status(200).send(`<h1>${joke}<h1>`);
+  //res.status(200).send(`<h1>${joke}<h1>`);
+  res.status(200).json({ joke });
 };
 
 const handleTrumpJoke = async (req, res, next) => {
@@ -28,7 +30,8 @@ const handleTrumpJoke = async (req, res, next) => {
   //res.status(200).send(`${joke}`);
   //console.log(joke);
   //return joke;
-  res.status(200).send(`<h1>${joke}<h1>`);
+  //res.status(200).send(`<h1>${joke}<h1>`);
+  res.status(200).json({ joke });
 };
 
 const handleJoke = async (req, res) => {
