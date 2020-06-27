@@ -8,9 +8,9 @@ const getDadJoke = async () => {
 		},
 	};
 	const joke = await request(options);
-	return JSON.parse(joke);
+	const parsed = JSON.parse(joke);
+	return parsed.joke;
 };
 // call the joke
 getDadJoke().then(console.log);
 
-// try and get it so only the joke shows, not ID and status
