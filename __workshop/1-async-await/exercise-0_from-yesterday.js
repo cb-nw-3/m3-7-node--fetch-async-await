@@ -56,8 +56,12 @@ const sortWords = (array) => {
 
 const textTransform = async (array) => {
   // add code here
-  makeAllCaps(array)
-    .then((answer) => console.log(answer))
+  await makeAllCaps(array)
+    .then((answer) =>
+      sortWords(answer)
+        .then((answer) => console.log(answer))
+        .catch((error) => error)
+    )
     .catch((error) => console.log(error));
 };
 
