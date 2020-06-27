@@ -5,7 +5,7 @@
 
 const compareToTen = (num) => {
     myPromise = new Promise((resolve, reject) => {
-        if(num > 10) {
+        if (num > 10) {
             resolve(num + " is greater than 10, success!")
         } else {
             reject(num + " is less than 10, error!")
@@ -15,13 +15,18 @@ const compareToTen = (num) => {
 }
 
 const myFunc = async (num) => {
-    // add code here
+    try {
+        console.log(await compareToTen(num));
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 
 myFunc(15);
 myFunc(8);
 
-    
+
 // Exercise 0.1
 // ------------
 // Write two functions that use Promises that you can chain!
@@ -33,10 +38,10 @@ const makeAllCaps = (array) => {
     return new Promise((resolve, reject) => {
 
         if (array.every(word => typeof word === 'string')) {
-                resolve(array.map(word => word.toUpperCase()));
-            } else {
-                reject('Error: Not all items in the array are strings!')
-            }
+            resolve(array.map(word => word.toUpperCase()));
+        } else {
+            reject('Error: Not all items in the array are strings!')
+        }
     });
 }
 
@@ -44,15 +49,21 @@ const sortWords = (array) => {
     return new Promise((resolve, reject) => {
 
         if (array.every(word => typeof word === 'string')) {
-                resolve(array.sort());
+            resolve(array.sort());
         } else {
-            reject('Error: Something went wrong with sorting words.') 
+            reject('Error: Something went wrong with sorting words.')
         }
     })
-} 
+}
 
 const textTransform = async (array) => {
-    // add code here
+    try {
+        let bigArray = await makeAllCaps(array);
+        console.log(await sortWords(bigArray));
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 
 textTransform(['cucumber', 'tomatos', 'avocado']);
