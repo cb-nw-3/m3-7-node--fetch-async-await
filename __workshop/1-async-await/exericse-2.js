@@ -13,21 +13,16 @@ const doublesLater = (number) => {
 //   .then((answer) => console.log(answer))
 //   .catch((error) => console.log(error));
 
-// async function addPromise(...number) {
-//   let sum = 0;
-//   try {
-//     number.forEach((element) => {
-//       let response = await doublesLater(element);
-//       console.log(response)
-//     });
-//     console.log(sum);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+async function addPromise(...number) {
+  let sumA = number[0];
+  for (let i = 1; i < number.length; i++) {
+    sumA += await doublesLater(number[i]);
+  }
+  console.log(sumA);
+}
 
 addPromiseExercise(10).then((answer) => console.log(answer));
-// addPromise(10, 20, 30, 40);
+addPromise(10, 10, 20, 30);
 
 async function addPromiseExercise(number) {
   let sum = 0;
