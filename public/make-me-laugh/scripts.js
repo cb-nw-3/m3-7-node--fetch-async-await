@@ -1,1 +1,58 @@
 // nothing here yet...
+//const { handleJoke } = require("../../handlers");
+
+let form = document.getElementById("type");
+
+let jokeElement = document.createElement("h1");
+jokeElement.id = "jokeText";
+
+document.body.appendChild(jokeElement);
+
+console.log(jokeElement);
+
+const updateJoke = (joke) => {
+  let element = document.getElementById("jokeText");
+  element.innerText = `${joke}`;
+};
+
+form.onchange = function (event) {
+  let type = this.value;
+  console.log(type);
+  if (type === "dad") {
+    fetch("/joke/dad")
+      .then((res) => {
+        if (res.status == 200) {
+          console.log("This is the response:", res);
+         
+          return res.json();
+        }
+      })
+      .then((data) => updateJoke(JSON.stringify(data.joke)));
+  }
+  if (type === "geek") {
+    fetch("/joke/geek")
+      .then((res) => {
+        if (res.status == 200) {
+          console.log("This is the response:", res);
+          
+          return res.json();
+        }
+      })
+      .then((data) => updateJoke(JSON.stringify(data.joke)));
+  }
+  if (type === "tronald") {
+    fetch("/joke/trump")
+      .then((res) => {
+        if (res.status == 200) {
+          console.log("This is the response:", res);
+          
+          return res.json();
+        }
+      })
+      .then((data) => updateJoke(JSON.stringify(data.joke)));
+  }
+};
+
+form.onsubmit = function (event) {
+  console.log(this.value);
+};

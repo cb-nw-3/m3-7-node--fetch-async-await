@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const { handleJoke, handleDadJoke, handleGeekJoke, handleTrumpJoke } = require('./handlers.js');
 
 const PORT = process.env.PORT || 8000;
 
@@ -19,5 +20,12 @@ express()
     .set('view engine', 'ejs')
 
     // endpoints
+    .use("/make-me-laugh", handleJoke)
+    .use("/joke/dad", handleDadJoke)
+    .use("/joke/geek", handleGeekJoke)
+    .use("/joke/trump", handleTrumpJoke)
+
+
+ 
 
     .listen(PORT, () => console.log(`Listening on port ${PORT}`));
