@@ -2,19 +2,17 @@ const request = require('request-promise');
 const fetch = require('node-fetch');
 
 //Without async await
-const parameter = {
-  headers: {
-    Accept: 'application/json',
-  },
-};
-fetch('https://api.tronalddump.io/random/quote', parameter)
-  .then((res) => res.json())
-  .then((data) => console.log('No async:', data.value));
-
-const getTronaldDump = async () => {};
+// const parameter = {
+//   headers: {
+//     Accept: 'application/json',
+//   },
+// };
+// fetch('https://api.tronalddump.io/random/quote', parameter)
+//   .then((res) => res.json())
+//   .then((data) => console.log('No async:', data.value));
 
 //using fetch and async await
-async function asyncWrapper() {
+async function getTronaldDump() {
   const parameter = {
     headers: {
       Accept: 'application/json',
@@ -25,22 +23,26 @@ async function asyncWrapper() {
     parameter
   );
   let data = await response.json();
-  console.log('async fetch: ', data.value);
+  return data.value;
 }
 
-asyncWrapper();
+// asyncWrapper();
 
-//using request and async await
-async function asyncWrapper2() {
-  const options = {
-    uri: 'https://api.tronalddump.io/random/quote',
-    headers: {
-      Accept: 'application/json',
-    },
-  };
-  let response = await request(options);
-  let data = JSON.parse(response);
-  console.log('async request: ', data.value);
-}
+// //using request and async await
+// async function asyncWrapper2() {
+//   const options = {
+//     uri: 'https://api.tronalddump.io/random/quote',
+//     headers: {
+//       Accept: 'application/json',
+//     },
+//   };
+//   let response = await request(options);
+//   let data = JSON.parse(response);
+//   console.log('async request: ', data.value);
+// }
 
-asyncWrapper2();
+// asyncWrapper2();
+
+module.exports = {
+  getTronaldDump,
+};

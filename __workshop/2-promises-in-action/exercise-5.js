@@ -7,6 +7,10 @@ const getGeekJoke = async () => {
   );
   //   console.log('hey', response);
   const data = await JSON.parse(response);
-  console.log(data.joke);
+  return data.joke;
 };
 getGeekJoke();
+
+module.exports = {
+  getGeekJoke,
+};
