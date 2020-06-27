@@ -16,10 +16,16 @@ const compareToTen = (num) => {
 
 const myFunc = async (num) => {
     // add code here
+    try {
+        const result = await compareToTen(num)
+        return result
+    } catch (err) {
+        return err
+    }
 }
 
-myFunc(15);
-myFunc(8);
+myFunc(15).then(console.log)
+myFunc(8).then(console.log)
 
     
 // Exercise 0.1
