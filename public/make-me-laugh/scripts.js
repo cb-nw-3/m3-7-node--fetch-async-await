@@ -1,26 +1,58 @@
 // nothing here yet...
-const jokeElement = document.querySelector(".jokeElement");
+//const { handleJoke } = require("../../handlers");
 
-jokeElement.innerText = "no jokes yet";
+let form = document.getElementById("type");
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const data = { type: type.value };
-  console.log("scripts.js", data);
+let jokeElement = document.createElement("h1");
+jokeElement.id = "jokeText";
 
-  fetch("/make-me-laugh", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.status === "success") {
-        jokeElement.innerText = res.joke;
-      } else {
-        console.log(res);
-      }
-    });
-}
+document.body.appendChild(jokeElement);
+
+console.log(jokeElement);
+
+const updateJoke = (joke) => {
+  let element = document.getElementById("jokeText");
+  element.innerText = `${joke}`;
+};
+
+form.onchange = function (event) {
+  let type = this.value;
+  console.log(type);
+  if (type === "dad") {
+    fetch("/joke/dad")
+      .then((res) => {
+        if (res.status == 200) {
+          console.log("This is the response:", res);
+         
+          return res.json();
+        }
+      })
+      .then((data) => updateJoke(JSON.stringify(data.joke)));
+  }
+  if (type === "geek") {
+    fetch("/joke/geek")
+      .then((res) => {
+        if (res.status == 200) {
+          console.log("This is the response:", res);
+          
+          return res.json();
+        }
+      })
+      .then((data) => updateJoke(JSON.stringify(data.joke)));
+  }
+  if (type === "tronald") {
+    fetch("/joke/trump")
+      .then((res) => {
+        if (res.status == 200) {
+          console.log("This is the response:", res);
+          
+          return res.json();
+        }
+      })
+      .then((data) => updateJoke(JSON.stringify(data.joke)));
+  }
+};
+
+form.onsubmit = function (event) {
+  console.log(this.value);
+};

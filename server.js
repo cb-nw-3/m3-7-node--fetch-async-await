@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const { handleJoke } = require('./handlers.js');
+const { handleJoke, handleDadJoke, handleGeekJoke, handleTrumpJoke } = require('./handlers.js');
 
 const PORT = process.env.PORT || 8000;
 
@@ -20,7 +20,10 @@ express()
     .set('view engine', 'ejs')
 
     // endpoints
-    .post("/make-me-laugh", handleJoke)
+    .use("/make-me-laugh", handleJoke)
+    .use("/joke/dad", handleDadJoke)
+    .use("/joke/geek", handleGeekJoke)
+    .use("/joke/trump", handleTrumpJoke)
 
 
  
