@@ -1,15 +1,26 @@
 // nothing here yet...
-function displayJoke(event) {
-    event.preventDefault();
-    const value = document.getElementById("type").value
+const jokeElement = document.querySelector(".jokeElement");
 
-    fetch('/joke', {
-        method: 'POST',
-        body: JSON.stringify({ type: value }),
-        headers: { 'Content-Type': 'application/json' },
-    })
-        .then(res => res.json())
-        .then(json => {
-            document.getElementById("joke").innerHTML = json.data;
-        });
-} 
+jokeElement.innerText = "no jokes yet";
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const data = { type: type.value };
+  console.log("scripts.js", data);
+
+  fetch("/make-me-laugh", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.status === "success") {
+        jokeElement.innerText = res.joke;
+      } else {
+        console.log(res);
+      }
+    });
+}
