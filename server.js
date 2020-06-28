@@ -3,7 +3,7 @@
 const express = require('express');
 // const bodyParser = require('body-parser'); not longer requiered https://medium.com/@mmajdanski/express-body-parser-and-why-may-not-need-it-335803cd048c
 const morgan = require('morgan');
-const { handler } = require('./handlers');
+const { handler, handlerStatic } = require('./handlers');
 
 const PORT = process.env.PORT || 8000;
 
@@ -23,6 +23,6 @@ express()
   .set('view engine', 'ejs')
 
   // endpoints
-  .get('/', handler)
-  // .get('*', handler)
+  .get('/make-me-laugh-ejs', handler)
+  .get('/getJoke', handlerStatic)
   .listen(PORT, () => console.log(`Listening on port ${PORT}`));
