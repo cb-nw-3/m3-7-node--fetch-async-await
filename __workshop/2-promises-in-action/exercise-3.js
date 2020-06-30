@@ -1,5 +1,4 @@
 const request = require('request-promise');
-const fetch = require('node-fetch');
 
 let options = {
   uri: 'https://icanhazdadjoke.com/',
