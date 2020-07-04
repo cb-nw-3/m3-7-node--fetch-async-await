@@ -12,17 +12,17 @@
 
 ```js
 const newPauseFunction = (sec) => {
-    return new Promise(function(resolve) {
-        console.log(`${sec}s pause`);
-        setTimeout(() => resolve('resolve'), sec * 1000);
-    });
-}
+  return new Promise(function (resolve) {
+    console.log(`${sec}s pause`);
+    setTimeout(() => resolve("resolve"), sec * 1000);
+  });
+};
 
 newPauseFunction(1)
-    .then(() => newPauseFunction(2))
-    .then(() => newPauseFunction(3))
-    .then(() => newPauseFunction(3))
-    .then(data => console.log(data));
+  .then(() => newPauseFunction(2))
+  .then(() => newPauseFunction(3))
+  .then(() => newPauseFunction(3))
+  .then((data) => console.log(data));
 ```
 
 _let's convert it to async/await_
@@ -33,7 +33,7 @@ _let's convert it to async/await_
 
 Convert the following to async/await
 
-```js
+````js
 transformText(string)
     .then((str) => allCaps(str))
     .then((str) => trimFirst(str))
@@ -44,7 +44,7 @@ transformText(string)
         return str;
     })
     .catch((err) => console.log(err));
-```
+
 
 ---
 
@@ -66,6 +66,6 @@ const asyncPause = async () => {
     } catch (err) { console.log(err) }
 }
 asyncPause();
-```
+````
 
 ---
