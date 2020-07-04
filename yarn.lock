@@ -1020,6 +1020,11 @@ prepend-http@^1.0.1:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
 
+promise-polyfill@~2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-2.0.2.tgz#3908dda91f5d130bfb3d09b3e1f77c37c4cb2669"
+  integrity sha1-OQjdqR9dEwv7PQmz4fd8N8TLJmk=
+
 proxy-addr@~2.0.5:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.6.tgz#fdc2336505447d3f2f2c638ed272caf614bbb2bf"
@@ -1147,6 +1152,13 @@ request@^2.88.2:
     tough-cookie "~2.5.0"
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
+
+require-promise@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/require-promise/-/require-promise-1.0.1.tgz#286508d4b609fe9a439daef714ea721b4f655c22"
+  integrity sha1-KGUI1LYJ/ppDna73FOpyG09lXCI=
+  dependencies:
+    promise-polyfill "~2.0.2"
 
 safe-buffer@5.1.2:
   version "5.1.2"
