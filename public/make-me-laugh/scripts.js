@@ -9,7 +9,7 @@ const onSubmit = async (event) => {
     selectedJokeType: selectedJokeType.value,
   };
 
-  const recivedObjectAfterRequest = await fetch("/getjoke", {
+  const receivedObjectAfterRequest = await fetch("/getjoke", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -17,6 +17,7 @@ const onSubmit = async (event) => {
       "Content-Type": "application/json",
     },
   });
-  const parcedResponse = await recivedObjectAfterRequest.json();
-  jokeDiv.innerText = `${parcedResponse.joke}`;
+  console.log(receivedObjectAfterRequest);
+  const parsedResponse = await receivedObjectAfterRequest.json();
+  jokeDiv.innerText = `${parsedResponse.joke}`;
 };
