@@ -9,3 +9,4 @@ const getGeekJoke = async () => {
     console.log(error);
   }
 };
+module.exports = { getGeekJoke };

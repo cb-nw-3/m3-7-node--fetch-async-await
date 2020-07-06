@@ -15,3 +15,4 @@ const getTronaldDump = async () => {
     console.log(error);
   }
 };
+module.exports = { getTronaldDump };
