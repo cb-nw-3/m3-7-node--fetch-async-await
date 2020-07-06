@@ -2,11 +2,50 @@
 // -----------------------------
 
 // require the 'request-promise' module.
-const request = require('request-promise');
+const request = require("request-promise");
 
+// 1. async in front of function declaration
+// 2. await and save to constant result of promise (instead of then)
+// 3. try catch
 // Returns the current position of the ISS
 const getIssPosition = async () => {
-    // add code here (include a try/catch as well)
-}
+  try {
+    const response = await request("http://api.open-notify.org/iss-now.json");
+    const issLocation = JSON.parse(response);
+    const data = {
+      lat: issLocation.iss_position.latitude,
+      lng: issLocation.iss_position.longitude,
+    };
+    console.log(data);
+    return data;
+  } catch (error) {
+    return console.log(`Here is the error: ${error}`);
+  }
 
-getIssPosition();
+  // add code here (include a try/catch as well)
+};
+
+getIssPosition().then();
+
+// //const request = require('request-promise');
+
+// // Returns the current position of the ISS
+// function getIssPosition() {
+//   return request('http://api.open-notify.org/iss-now.json')
+//       .then(response => {
+//           // Parse as JSON
+//           const issLocation = JSON.parse(response);
+//           // Return object with lat and lng
+//           return {
+//               lat: issLocation.iss_position.latitude,
+//               lng: issLocation.iss_position.longitude,
+//           }
+//       })
+//       .then(data => {
+//           console.log(data);  // console.log the result within the .then chain to inspect data
+//           return data;        // return it to continue the data down the chain of Promises (if needed)
+//       })
+//       .catch(err => console.log('Error: ', err));
+// }
+
+// getIssPosition();
