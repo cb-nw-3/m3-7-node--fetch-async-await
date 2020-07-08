@@ -12,6 +12,4 @@ const getDadJoke = async () => {
   return JSON.parse(joke);
 };
 
-// getJoke().then(data => console.log(data));
-
 module.exports = { getDadJoke };
