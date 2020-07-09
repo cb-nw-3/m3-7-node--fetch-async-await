@@ -8,6 +8,8 @@ const handleJoke = async (req, res) => {
   // this function expects a request and a response object.
   //it expects this request object to have a body and a type property
   const type = req.body.type;
+  //the request is an object inside that object is a body
+  //req is the paremeter and it evaluates to the object body which evaluates to another object
   let joke = "";
 
   switch (type) {
