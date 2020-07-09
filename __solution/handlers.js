@@ -1,4 +1,4 @@
-const { getDadJoke } = require('./__workshop/2-promises-in-action/exercise-3');
+const const { getDadJoke } = require('./__workshop/2-promises-in-action/exercise-3');
 const { getTronaldDump } = require('./__workshop/2-promises-in-action/exercise-4');
 const { getGeekJoke } = require('./__workshop/2-promises-in-action/exercise-5');
 
