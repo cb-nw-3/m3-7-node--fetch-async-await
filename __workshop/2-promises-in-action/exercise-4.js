@@ -18,4 +18,8 @@ const getTronaldDump = async () => {
 
 getTronaldDump().then((data) => console.log(data));
 
+// THIS DOES NOT WORK, cannot use await outside a function.
+// const data = await getTronaldDump();
+// console.log(data);
+
 module.exports = { getTronaldDump };
