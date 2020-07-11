@@ -14,4 +14,6 @@ const getGeekJoke = async () => {
   }
 };
 
-getGeekJoke().then((result) => console.log(result));
+//getGeekJoke().then((result) => console.log(result));
+
+module.exports = { getGeekJoke };
