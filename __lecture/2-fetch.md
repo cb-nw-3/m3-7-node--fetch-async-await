@@ -4,8 +4,8 @@
 
 - `fetch()` is a JavaScript (but not in NodeJS) Promise-based function.
 - It's mainly used to
-    - `GET` from somewhere
-    - `POST` data somewhere
+  - `GET` from somewhere
+  - `POST` data somewhere
 
 The syntax is very similar to Promises.
 
@@ -14,16 +14,16 @@ The syntax is very similar to Promises.
 ### `GET`
 
 ```js
-fetch('<URL>')
-    .then(res => {
-        // if response is successful
-            // do something.
-        // else
-            // do something else.
-        // you can return something to another .then, or not...
-    })
-    .then()
-    .catch() // you can also catch errors!
+fetch("<URL>")
+  .then((res) => {
+    // if response is successful
+    // do something.
+    // else
+    // do something else.
+    // you can return something to another .then, or not...
+  })
+  .then()
+  .catch(); // you can also catch errors!
 ```
 
 ---
@@ -60,3 +60,9 @@ fetch('<URL>'{
 [Getting started](https://support.insomnia.rest/category/9-getting-started)
 
 ---
+
+REST API's
+
+REST is a type of API, one of the most common on the web.
+
+REST is a client-server architecture
